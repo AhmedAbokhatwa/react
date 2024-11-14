@@ -1,14 +1,13 @@
 
-function App() {
-
-
+import Header from "./Component/Header"
+function App(props) {
   return (
-  <section>
-    <h2 className="title">s</h2>
-  </section>
-  
-	
-  )
+    <section>
+      <Header />
+    
+      <h2 className="title">Content {props.title}</h2>
+    </section>
+  );
 }
 
-export default App
+export default App;
