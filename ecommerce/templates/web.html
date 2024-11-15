@@ -19,7 +19,7 @@
       {% endif %}
     </div>
 
-    <div class="page_content" style="direction: rtl">
+    <div class="page_content">
       {%- block page_content -%}{%- endblock -%}
     </div>
 
@@ -38,7 +38,7 @@ source_content_type %}source-content-type="{{ source_content_type }}"{%- endif
 </div>
 {% endmacro %} {% if show_sidebar %}
 <div class="container">
-  <div class="row" {{ container_attributes() }} style="direction: rtl">
+  <div class="row" {{ container_attributes() }} >
     {%- set columns = sidebar_columns or 2 -%} {%- if not sidebar_right -%} {{
     sidebar() }} {%- endif -%}
     <div class="main-column col-sm-{{ 12 - columns }}">
