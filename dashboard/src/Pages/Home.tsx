@@ -1,6 +1,7 @@
 import React from 'react'
 import { Cateigories  } from '../Component/MockData'
 import HeroImage from '../assets/Images/shopping-background.png'
+import InfoSection from '../Component/InfoSection'
 function Home() {
   return (
     <div className='bg-white mt-2 px-4 ms:px-12 lg:px-14'>
@@ -32,7 +33,9 @@ function Home() {
         </div>
         
       </div>
+      <InfoSection/>
     </div>
+    
   )
 }
 
