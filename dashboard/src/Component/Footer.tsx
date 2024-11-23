@@ -34,6 +34,10 @@ function Footer() {
         <a href=""><FaGithub/></a>
         <a href=""><FaLinkedin/></a>
       </div>
+      <form action="">
+        <input type="email" />
+        <button>Subscribe</button>
+      </form>
     </footer>
   )
 }
