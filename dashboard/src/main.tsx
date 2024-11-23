@@ -4,7 +4,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import About from "./Pages/About.tsx";
+import Shop from "./Pages/Shop.tsx";
 import Products from "./Pages/Products.tsx";
 import store from './redux/store.tsx'; // Assuming Redux is in use
 import { Provider } from 'react-redux';
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorBoundary />, // Custom error handling
     children: [
       {
-        path: "about",
-        element: <About />,
+        path: "/shop",
+        element: <Shop />,
       },
       {
         path: "products",
