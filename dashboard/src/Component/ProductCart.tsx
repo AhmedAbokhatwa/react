@@ -6,7 +6,7 @@ function ProductCart({product}) {
       <img className='h-48 w-full object-contain mb-4' src={product.image} alt="" />
       <h3 className='text-x font-semibold'>{product.name}</h3>
       <p className='text-gray-500'>${product.price}</p>
-      <div>
+      <div className='flex items-center mt-2'>
       <FaStar className='text-yellow-500'></FaStar>
       <FaStar className='text-yellow-500'></FaStar>
       <FaStar className='text-yellow-500'></FaStar>

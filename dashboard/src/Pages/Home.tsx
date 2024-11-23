@@ -6,6 +6,7 @@ import CategorySection from '../Component/CategorySection'
 import { setProducts } from '../redux/cartSlice';
 import { useDispatch, useSelector } from 'react-redux'
 import ProductCart from '../Component/ProductCart'
+
 function Home() {
   console.log('Products from Redux state1:');
   const dispatch = useDispatch();
@@ -57,9 +58,9 @@ function Home() {
       <h2 className='text-2xl font-bold mb-6 text-center'>Top Sales</h2>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 cursor-pointer'>
       {products.length > 0 ? (
-          products.slice(0, 5).map((product, index) => (
+          products.slice(0, 5).map((product:{}, index:number) => (
              // Display the product name or other properties
-             <ProductCart product={product}/>
+             <ProductCart product={product} key={index}/>
           ))
         ) : (<p>No products available</p>)
       }
