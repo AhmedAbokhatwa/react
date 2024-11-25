@@ -8,20 +8,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import ProductCart from '../Component/ProductCart'
 
 function Home() {
-  console.log('Products from Redux state1:');
-  const dispatch = useDispatch();
-  console.log('Products from Redux state:2');
-
-  // Correct path to access products in the cart slice
-  const products = useSelector((state) => state.cart.products);
-
-  console.log('Pro:', products);
+  const dispatch = useDispatch()
+  const products = useSelector(state => state.cart.products)
   useEffect(() => {
-    console.log('Dispatching setProducts with mockData:', mockData);
-    dispatch(setProducts(mockData));
-  }, [dispatch]);
-  
-  console.log('products:', products);
+    dispatch(setProducts(mockData))
+  }, [dispatch])
+
+  console.log('products:', products)
   return (
     <div className='bg-white mt-2 px-4 ms:px-12 lg:px-14'>
       <div className='container mx-auto py-4 flex flex-col md:flex-row space-x-2'>
