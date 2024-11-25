@@ -1,16 +1,21 @@
+import { BrowserRouter,Routes,Route } from "react-router-dom";
 import Navbar from "./Component/Navbar";
 import Footer from "./Component/Footer"
 import Home from "./Pages/Home";
 import Shop from "./Pages/Shop";
+import Cart from "./Pages/Cart";
 function App() {
   return (
     
-    <section>
-      <Navbar />  
-      <Home />
-      <Shop />
-      <Footer  />
-    </section>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/shop" element={<Shop />}></Route>
+        <Route path="/cart" element={<Shop />}></Route>
+      </Routes>  
+    <Footer/>
+    </BrowserRouter>
   );
 }
 

@@ -1,46 +1,14 @@
-// import { StrictMode } from 'react'
 import React from "react";
-import { createRoot } from "react-dom/client";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 import "./index.css";
-import App from "./App.tsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Shop from "./Pages/Shop.tsx";
-import Products from "./Pages/Products.tsx";
-import store from './redux/store.tsx'; // Assuming Redux is in use
-import { Provider } from 'react-redux';
+import store from "./redux/store"; // Ensure the path is correct
+import { Provider } from "react-redux";
 
-const ErrorBoundary = () => {
-  return (
-    <div className="text-center mt-10">
-      <h1 className="text-red-600 text-xl font-bold">Something went wrong!</h1>
-    </div>
-  );
-};
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorBoundary />, // Custom error handling
-    children: [
-      {
-        path: "/shop",
-        element: <Shop />,
-      },
-      {
-        path: "products",
-        element: <Products />,
-      },
-    ],
-  },
-]);
-
-const root = createRoot(document.getElementById("root")!);
-root.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
-    </React.StrictMode>
-  
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
 );
