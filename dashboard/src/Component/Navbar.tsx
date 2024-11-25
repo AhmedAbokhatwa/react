@@ -1,9 +1,11 @@
 import React from 'react';
 import { FaSearch, FaShoppingCart ,FaUser} from 'react-icons/fa';
-
+import { useSelector } from 'react-redux';
 import {Link} from 'react-router-dom'
+import { Span } from './CustomComponents';
 
 function Navbar(){
+  const products = useSelector(state => state.cart.products)
     return(
       <nav className='bg-white shadow-md'>
         <div className='container mx-auto px-4 md:px-16 lg:px-24 py-4 flex justify-between items-center'>
@@ -17,8 +19,11 @@ function Navbar(){
               </form>
             </div>
             <div className='flex items-center space-x-4 '>
-              <Link to="/cart">
-              <FaShoppingCart className='text-lg'></FaShoppingCart>
+              <Link to="/cart" className='relative'>
+              <FaShoppingCart className='text-lg' />
+              {products.length > 0 &&
+              (<span className='absolute bottom-2 text-xs w-4 left-4 bg-red-600 rounded-full 
+              flex justify-center items-center text-white '>{products.length}</span>)}
               </Link>
               <button className='hidden md:block'>
                 Login | Register
