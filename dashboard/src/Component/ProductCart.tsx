@@ -1,14 +1,16 @@
 import React from 'react'
 import { FaStar } from 'react-icons/fa'
+import { addToCart } from '../redux/cartSlice'
 import { useDispatch } from 'react-redux' 
-import { addToCart } from '../redux/cartSlice';
 function ProductCart({product}) {
   const dispatch = useDispatch();
   const handleAddCart = (e, product)=>{
       e.stopPropagation();
       e.preventDefault();
       dispatch(addToCart(product))
-      alert("add Sucessfully")  
+      console.log('productproduct')
+      alert("add Sucessfullyy")  
+      
   }
 
   return (

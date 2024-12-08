@@ -9,12 +9,14 @@ import ProductCart from '../Component/ProductCart'
 
 function Home() {
   const dispatch = useDispatch()
-  const products = useSelector(state => state.cart.products)
+  const products = useSelector(state => state.cart.cartItems)
   useEffect(() => {
     dispatch(setProducts(mockData))
   }, [dispatch])
 
   console.log('products:', products)
+  // itemIndex
+  // console.log("itemIndex",itemIndex)
   return (
     <div className='bg-white mt-2 px-4 ms:px-12 lg:px-14'>
       <div className='container mx-auto py-4 flex flex-col md:flex-row space-x-2'>

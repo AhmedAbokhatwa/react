@@ -7,11 +7,11 @@ function Shop() {
   const dispatch = useDispatch()
   const products = useSelector(state => state.cart.products) 
   useEffect(() => {
-    console.log('Dispatching setProducts with mockData:', mockData);
+    // console.log('Dispatching setProducts with mockData:', mockData);
     dispatch(setProducts(mockData));
   }, [dispatch]);
   
-  console.log('products:', products);
+  // console.log('products:', products);
   return (
     <div className=" mx-auto py-12 px-4 md:px-16 lg:px-24">
     <h2 className='text-2xl font-bold mb-6 text-center'>The Shop</h2>

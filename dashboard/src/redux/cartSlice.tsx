@@ -2,37 +2,39 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  products: [],  // The initial state is an empty array
-  totalPrice :0,
+  cartItems: [],  // The initial state is an empty array
+  cartQuantity :0,
   total_qty:0
 };
 
 const cartSlice = createSlice({
-  name: "cart",
+  name: 'cart',
   initialState,
   reducers: {
     setProducts(state, action) {
       // This updates the products state in Redux with the payload (mockData)
-      state.products = action.payload;
+      state.cartItems = action.payload;
     },
     addToCart(state,action){
-      const newItem = action.payload;
-      const itemIndex = state.products.find((item) => item.id === newItem.id)
-      if (itemIndex){
-        itemIndex.qty++;
-        itemIndex.totalPrice += newItem.price ;
+      
+      // const newItem = action.payload.id;
+      // console.log("new id ",newItem)
+      
+      const itemIndex = state.cartItems.findIndex((item) => item.id  === action.payload.id)
+      // console.log("iii",item)
+      console.log('IDX',itemIndex)
+
+      if (itemIndex>=0){
+        
+        state.cartItems[itemIndex].cartQuantity=
+        (state.cartItems[itemIndex].cartQuantity || 0) + 1;
+        console.log("eeeee",itemIndex)
       }else{
-        state.products.push({
-          id:newItem.id,
-          name:newItem.name,
-          price:newItem.price,
-          qty:1,
-          totalPrice:newItem.price,
-          Image:newItem.image
-        })
+        
+        const temp = {...action.payload, cartQuantity :1}
+        state.cartItems.push(temp)
+        // console.log("newItem",newItem)
       }
-      state.totalPrice += newItem.price;
-      state.total_qty++; 
     }
   },
 });
